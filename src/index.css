@@ -353,20 +353,38 @@ body {
 }
 
 @media screen and (max-width: 792px) {
+  .nav-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    height: 8.8rem;
+    padding: 0 2.2rem;
+  }
+
+  .search {
+    margin: 4px 0;
+    height: auto;
+  }
+
+  .num-results {
+    grid-column: span 2;
+    margin-right: 10rem;
+  }
+
   .main {
     margin-top: 1.4rem;
     width: 100%;
     height: calc(100vh - 7.2rem - 3 * 2.4rem);
     display: flex;
     flex-direction: column-reverse;
-    gap: 2rem;
+    gap: 1.5rem;
     overflow: scroll;
     justify-content: center;
   }
 
   .box {
     width: 100%;
-    height: 60rem;
+    height: 50%;
     margin-inline: auto;
     max-width: 90%;
     overflow: auto;

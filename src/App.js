@@ -3,18 +3,53 @@ import StarRating from "./StarRating.js";
 import { useMovie } from "./useMovie.js";
 import { useLocalStorageState } from "./useLocalStorageState.js";
 import { useKey } from "./useKey.js";
+import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 const Api = "http://www.omdbapi.com/?apikey=ba9b631a&";
 
+const root = document.documentElement;
+
+const setVariables = (vars) =>
+  Object.entries(vars).forEach((v) => root.style.setProperty(v[0], v[1]));
+
 export default function App() {
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const [watched, setWatched] = useLocalStorageState([], "watched");
-
+  const [isDark, setIsDark] = useLocalStorageState(
+    window.matchMedia("(prefers-color-scheme:dark)").matches,
+    "dark"
+  );
   const { movies, loading, error } = useMovie(query);
+
+  useEffect(() => {
+    if (isDark) {
+      const myVariables = {
+        "--color-primary": "#6741d9",
+        "--color-primary-light": "#7950f2",
+        "--color-text": "#dee2e6",
+        "--color-text-dark": "#adb5bd",
+        "--color-background-100": "#343a40",
+        "--color-background-500": "#2b3035",
+        "--color-background-900": "#212529",
+      };
+      setVariables(myVariables);
+    } else {
+      const myVariables = {
+        "--color-primary": "#8EC3B0",
+        "--color-primary-light": "#9ED5C5",
+        "--color-text": "#2b3035",
+        "--color-text-dark": "#212529",
+        "--color-background-100": "#F8F6F4",
+        "--color-background-500": "#E3F4F4",
+        "--color-background-900": "#D2E9E9",
+      };
+      setVariables(myVariables);
+    }
+  }, [isDark]);
 
   function handleSelectMovie(id) {
     setSelectedId((selectedMovie) => (selectedMovie === id ? null : id));
@@ -32,11 +67,16 @@ export default function App() {
     setWatched((movie) => watched.filter((movie) => movie.imdbID !== id));
   }
 
+  function handleToggleDark() {
+    setIsDark((curr) => !curr);
+  }
+
   return (
     <>
       <Navbar>
         <Search query={query} setQuery={setQuery} />
         {movies.length > 0 && <NumResults movies={movies} />}
+        <DarkMode handleToggleDark={handleToggleDark} isDark={isDark} />
       </Navbar>
 
       <Main>
@@ -127,6 +167,14 @@ function NumResults({ movies }) {
     <p className="num-results">
       Found <strong>{movies.length}</strong> results
     </p>
+  );
+}
+
+function DarkMode({ isDark, handleToggleDark }) {
+  return (
+    <div onClick={handleToggleDark} className="theme-icon">
+      {isDark ? <BsFillSunFill /> : <BsFillMoonStarsFill />}
+    </div>
   );
 }
 

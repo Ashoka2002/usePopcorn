@@ -1,4 +1,5 @@
-:root {
+:root,
+.dark-mode {
   --color-primary: #6741d9;
   --color-primary-light: #7950f2;
   --color-text: #dee2e6;
@@ -9,6 +10,17 @@
   --color-red: #fa5252;
   --color-red-dark: #e03131;
 }
+/* :root {
+  --color-primary: #6741d9;
+  --color-primary-light: #7950f2;
+  --color-text: #dee2e6;
+  --color-text-dark: #adb5bd;
+  --color-background-100: #343a40;
+  --color-background-500: #2b3035;
+  --color-background-900: #212529;
+  --color-red: #fa5252;
+  --color-red-dark: #e03131;
+} */
 
 * {
   margin: 0;
@@ -116,7 +128,7 @@ body {
 }
 
 .num-results {
-  justify-self: end;
+  justify-self: center;
   font-size: 1.8rem;
 }
 
@@ -134,6 +146,15 @@ body {
   font-weight: bold;
   cursor: pointer;
   z-index: 999;
+}
+
+.theme-icon {
+  font-size: 3rem;
+  position: absolute;
+  right: 4rem;
+  top: 4rem;
+  z-index: 100;
+  cursor: pointer;
 }
 
 .list {

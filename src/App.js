@@ -4,7 +4,8 @@ import { useMovie } from "./useMovie.js";
 import { useLocalStorageState } from "./useLocalStorageState.js";
 import { useKey } from "./useKey.js";
 
-const average = (arr) => arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+const average = (arr) =>
+  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 const Api = "http://www.omdbapi.com/?apikey=ba9b631a&";
 
@@ -40,9 +41,10 @@ export default function App() {
 
       <Main>
         <Box>
-          {/* {loading ? <Loader /> : <MovieList movies={movies} />} */}
           {loading && <Loader />}
-          {!loading && !error && <MovieList onMoiveSelect={handleSelectMovie} movies={movies} />}
+          {!loading && !error && (
+            <MovieList onMoiveSelect={handleSelectMovie} movies={movies} />
+          )}
           {error && <ErrorMessage message={error} />}
         </Box>
         <Box>
@@ -56,7 +58,10 @@ export default function App() {
           ) : (
             <>
               <WatchedSummary watched={watched} />
-              <WatchedList onDeleteWached={handleDeleteWached} watched={watched} />
+              <WatchedList
+                onDeleteWached={handleDeleteWached}
+                watched={watched}
+              />
             </>
           )}
         </Box>
@@ -184,7 +189,9 @@ function MovieDetail({ watched, selectedId, onCloseMovie, onAddWached }) {
   }, [userRating]);
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
-  const watchedUserRaing = watched.find((movie) => movie.imdbID === selectedId)?.userRating;
+  const watchedUserRaing = watched.find(
+    (movie) => movie.imdbID === selectedId
+  )?.userRating;
   const {
     Title: title,
     Year: year,
@@ -261,7 +268,11 @@ function MovieDetail({ watched, selectedId, onCloseMovie, onAddWached }) {
         <div className="rating">
           {!isWatched ? (
             <>
-              <StarRating maxRating={10} size={24} onSetRating={setUserRating} />
+              <StarRating
+                maxRating={10}
+                size={24}
+                onSetRating={setUserRating}
+              />
               {userRating > 0 && (
                 <button className="btn-add" onClick={onAdd}>
                   + add to watchlist
@@ -316,7 +327,11 @@ function WatchedList({ watched, onDeleteWached }) {
   return (
     <ul className="list">
       {watched.map((movie) => (
-        <WatchedMovie onDeleteWached={onDeleteWached} key={movie.imdbID} movie={movie} />
+        <WatchedMovie
+          onDeleteWached={onDeleteWached}
+          key={movie.imdbID}
+          movie={movie}
+        />
       ))}
     </ul>
   );
@@ -341,7 +356,10 @@ function WatchedMovie({ movie, onDeleteWached }) {
           <span>{movie.runtime} min</span>
         </p>
 
-        <button className="btn-delete" onClick={() => onDeleteWached(movie.imdbID)}>
+        <button
+          className="btn-delete"
+          onClick={() => onDeleteWached(movie.imdbID)}
+        >
           X
         </button>
       </div>

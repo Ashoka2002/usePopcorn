@@ -211,7 +211,7 @@ function Movie({ movie, onMoiveSelect }) {
         onMoiveSelect(movie.imdbID);
       }}
     >
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
+      <img src={movie.Poster} alt={`${movie.Title?.slice(0, 15)} poster`} />
       <h3>{movie.Title}</h3>
       <div>
         <p>

@@ -392,3 +392,22 @@ body {
     position: relative;
   }
 }
+
+@media screen and (max-width: 540px) {
+  .search {
+    width: 100%;
+    min-width: 22rem;
+  }
+  .num-results {
+    grid-column: span 2;
+    margin-right: 7rem;
+  }
+  .logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .logo {
+    gap: 0.4rem;
+  }
+}

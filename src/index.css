@@ -60,6 +60,17 @@ body {
   position: relative;
 }
 
+.box::-webkit-scrollbar-track,
+.box::-webkit-scrollbar {
+  width: 25px;
+  background: var(--color-background-100);
+  box-shadow: inset 1px 0 6px var(--color-background-500);
+}
+.box::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 50px;
+}
+
 .loader {
   text-align: center;
   text-transform: uppercase;
@@ -387,7 +398,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     gap: 1.5rem;
-    overflow: scroll;
+    overflow: auto;
     justify-content: center;
   }
 
@@ -406,7 +417,9 @@ body {
 @media screen and (max-width: 624px) {
   .search {
     width: 100%;
-    min-width: 22rem;
+    min-width: 18rem;
+    padding: 5px;
+    justify-self: end;
   }
   .num-results {
     grid-column: span 2;
@@ -415,7 +428,7 @@ body {
 
   .theme-icon {
     font-size: 2.5rem;
-    top: 5.3rem;
+    top: 5rem;
   }
 
   .logo h1 {

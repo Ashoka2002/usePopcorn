@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Api = "http://www.omdbapi.com/?apikey=ba9b631a&";
+const Api = "https://www.omdbapi.com/?apikey=ba9b631a&";
 
 export function useMovie(query) {
   const [movies, setMovies] = useState([]);
@@ -19,7 +19,9 @@ export function useMovie(query) {
       try {
         setError("");
         setLoading(true);
-        const res = await fetch(`${Api}s=${query}`, { signal: controller.signal });
+        const res = await fetch(`${Api}s=${query}`, {
+          signal: controller.signal,
+        });
         if (!res.ok) throw new Error("Something went wrong!!!");
         const data = await res.json();
         if (data.Response === "False") throw new Error("Movie not found!");

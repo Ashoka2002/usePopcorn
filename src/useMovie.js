@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Api = "https://www.omdbapi.com/?apikey=ba9b631a&";
+const Api = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
 export function useMovie(query) {
   const [movies, setMovies] = useState([]);

@@ -8,7 +8,7 @@ import { BsFillMoonStarsFill, BsFillSunFill } from "react-icons/bs";
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const Api = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
+const Api = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&`;
 
 const root = document.documentElement;
 

@@ -382,9 +382,17 @@ body {
     padding: 0 2.2rem;
   }
 
+  .summary div,
+  .summary h2,
+  .details-overview h2,
+  .list h3 {
+    font-size: 1.3rem;
+  }
+
   .search {
     height: auto;
     justify-self: center;
+    font-size: 1.4rem;
   }
 
   .num-results {
@@ -432,7 +440,7 @@ body {
   }
 
   .logo h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
   }

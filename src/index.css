@@ -385,8 +385,10 @@ body {
   .summary div,
   .summary h2,
   .details-overview h2,
-  .list h3 {
+  .list h3,
+  .list div {
     font-size: 1.3rem;
+    gap: 1.3rem;
   }
 
   .search {
@@ -399,7 +401,12 @@ body {
     display: none;
   }
 
-  .main {
+  .details section,
+  .rating {
+    padding: 1rem;
+  }
+
+  /* .main {
     margin-top: 1.4rem;
     width: 100%;
     height: calc(100vh - 7.2rem - 3 * 2.4rem);
@@ -419,24 +426,65 @@ body {
     top: 0;
     box-shadow: 0 3px 4px var(--color-text);
     position: relative;
-  }
+  } */
 }
 
-@media screen and (max-width: 624px) {
+@media screen and (max-width: 664px) {
   .search {
     width: 100%;
     min-width: 18rem;
     padding: 5px;
     justify-self: end;
   }
+
+  .main {
+    margin-top: 1.2rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    overflow: auto;
+    justify-content: center;
+  }
+
+  .box {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 90%;
+    overflow: auto;
+    top: 0;
+    box-shadow: 0 3px 4px var(--color-text);
+    position: relative;
+  }
+  .box:first-child {
+    min-height: 500px;
+    max-height: 100rem;
+  }
+  .box:nth-child(2) {
+    min-height: 4rem;
+  }
+
   .num-results {
     grid-column: span 2;
     margin-right: 7rem;
   }
 
+  .rating {
+    min-width: 30rem;
+  }
+
   .theme-icon {
     font-size: 2.5rem;
-    top: 5rem;
+    top: 2.5rem;
+    right: 2.4rem;
+  }
+  body {
+    padding: 0;
+  }
+  .nav-bar {
+    padding: 0 1.2rem;
+    border-radius: 0.9rem;
   }
 
   .logo h1 {

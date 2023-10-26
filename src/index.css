@@ -362,6 +362,10 @@ body {
   justify-content: center;
 }
 
+.watched-movies {
+  display: none;
+}
+
 @media screen and (max-width: 992px) {
   html {
     font-size: 58.5%;
@@ -463,6 +467,13 @@ body {
   }
   .box:nth-child(2) {
     min-height: 4rem;
+  }
+  .watched-movies {
+    font-size: 2rem;
+    display: block;
+    text-align: center;
+    font-weight: 900;
+    margin: 4px;
   }
 
   .num-results {

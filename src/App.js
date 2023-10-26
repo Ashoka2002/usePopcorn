@@ -87,7 +87,7 @@ export default function App() {
           )}
           {error && <ErrorMessage message={error} />}
         </Box>
-        <Box>
+        <Box isBox2={true}>
           {selectedId ? (
             <MovieDetail
               watched={watched}
@@ -182,10 +182,13 @@ function Main({ children }) {
   return <main className="main">{children}</main>;
 }
 
-function Box({ children }) {
+function Box({ children, isBox2 }) {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="box">
+      {!isOpen && isBox2 && (
+        <div className="watched-movies">Watched movies</div>
+      )}
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
       </button>
@@ -364,7 +367,7 @@ function WatchedSummary({ watched }) {
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime.toFixed(2)} min</span>
         </p>
       </div>
     </div>

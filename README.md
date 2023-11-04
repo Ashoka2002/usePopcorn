@@ -1,4 +1,3 @@
-
 # UsePopcorn: Movie Explorer and Watchlist Manager
 
 **UsePopcorn** is a React application designed to provide users with an immersive movie exploration experience. It enables users to explore, rate, and manage their watched movie list. Leveraging the Open Movie Database (OMDB API), this app gains access to a vast movie database, allowing quick and easy access to comprehensive movie information, including genre, cast, director details, ratings, and much more.
@@ -15,4 +14,4 @@
 
 This application is a part of a course offered by Jonas Schmedtmann. It's designed to enhance the movie exploration experience while efficiently managing and organizing watched movies.
 
-🌐 **[Live Demo](https://ashoka2002.github.io/usePopcorn
+🌐 **[Live Demo](https://ashoka2002.github.io/usePopcorn/)** available here!
